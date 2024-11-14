@@ -10,5 +10,20 @@ class TestZoo(unittest.TestCase):
        
     # Add your additional test cases here.
 
+    def test_invalid_ticket_price(self):
+        self.assertEqual(self.zoo.get_ticket_price(-1), "Pls check age again")
+    
+    def test_kids_ticket_price(self):
+        self.assertEqual(self.zoo.get_ticket_price(0), 50)
+    
+    def test_young_ticket_price(self):
+        self.assertEqual(self.zoo.get_ticket_price(13), 100)
+
+    def test_adult_ticket_price(self):
+        self.assertEqual(self.zoo.get_ticket_price(21), 150)
+
+    def test_old_ticket_price(self):
+        self.assertEqual(self.zoo.get_ticket_price(61), 100)
+
 if __name__ == '__main__':
     unittest.main()
